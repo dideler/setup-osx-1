@@ -4,7 +4,7 @@ Dir.glob(File.join(__dir__, '**', '*.rb')).each do |rake_file|
 end
 
 task default: [
-  'settings:osx',
+  'settings:ubuntu',
   'settings:bash_it',
   'language:ruby',
   'language:node'

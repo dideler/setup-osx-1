@@ -1,8 +1,8 @@
 #!/usr/bin/env bash -xe
 
-mkdir -p ~/workspace
-git clone git@github.com:ignitionworks/setup-osx.git ~/workspace/setup-osx
+mkdir -p ~/github.com
+git clone git@github.com:dideler/setup-ubuntu.git ~/github.com/dideler/setup-ubuntu
 
-pushd ~/workspace/setup-osx
+pushd ~/github.com/dideler/setup-ubuntu
   rake --trace
 popd
