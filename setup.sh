@@ -1,4 +1,6 @@
-#!/usr/bin/env bash -xe
+#!/usr/bin/env bash
+
+set -xe
 
 mkdir -p ~/github.com
 git clone git@github.com:dideler/setup-ubuntu.git ~/github.com/dideler/setup-ubuntu
