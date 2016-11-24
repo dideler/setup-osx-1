@@ -5,8 +5,9 @@ task 'settings:bash_it' do
     Dir.chdir(bash_it_path) { system('git pull') }
   else
     system("git clone --depth=1 https://github.com/Bash-it/bash-it.git #{bash_it_path}")
-    system(File.join(bash_it_path, 'install.sh'))
+    system("#{File.join(bash_it_path, 'install.sh')} --silent")
   end
 
-  system 'bash -lc "bash-it enable plugin osx"'
+  system('bash -lc "bash-it update"')
+  system('bash -lc "bash-it enable alias ag bundler general git"')
 end
