@@ -5,6 +5,7 @@
 If you want to install the configuration as is, run:
 
 ```
+sudo apt install curl -y
 curl -s https://raw.githubusercontent.com/dideler/setup-ubuntu/master/setup.sh | bash
 ```
 
