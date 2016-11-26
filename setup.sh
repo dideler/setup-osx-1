@@ -3,6 +3,7 @@
 set -xe
 
 apt update
+apt upgrade -y
 apt install -y build-essential git htop libglib2.0-bin ruby unzip wget
 
 mkdir -p ~/github.com
