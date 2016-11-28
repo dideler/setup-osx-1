@@ -12,21 +12,21 @@ task 'application:git_duet' => %w(
 
   config = {
     'authors' => {
-      'tc' => 'Theo Cushion; theo',
-      'no' => 'Nadia Odunayo; nadia'
+      'di' => 'Dennis Ideler; ideler.dennis',
     },
     'email' => {
-      'domain' => 'ignition.works'
+      'domain' => 'gmail.com'
     }
   }
 
   File.open(File.expand_path('~/.git-authors'), 'w').write(config.to_yaml)
 
-  File.open(File.expand_path('~/.bash_it/custom/git_duet.bash'), 'w').write(
+  File.open(File.expand_path('~/.bash_it/custom/git_duet.env.bash'), 'w').write(
 <<-EOS
-export GIT_DUET_GLOBAL=true
+export GIT_DUET_GLOBAL=false
 export GIT_DUET_ROTATE_AUTHOR=true
 EOS
   )
 end
+
 APPLICATIONS.push('git_duet')
