@@ -3,50 +3,19 @@ require 'package_managers/linuxbrew'
 APPLICATIONS = []
 
 {
-  '1password' => [],
-  'bonjour-browser' => [],
-  'caffeine' => [],
-  'dash' => [],
-  'dropbox' => [],
-  'evernote' => [],
-  'firefox' => [],
-  'flux' => [],
-  'flycut' => [],
-  'google-chrome' => [],
-  'java' => [],
-  'little-snitch' => [],
-  'mongohub' => [],
-  'pepper-flash' => [],
-  'pgadmin3' => [],
-  'psequel' => [],
-  'qtpass' => ['application:gnupg2'],
-  'rdm' => [], # Redis Desktop Manager
-  'rowanj-gitx' => [],
-  'rubymine' => ['application:java6'],
-  'screenhero' => [],
-  'skype' => [],
-  'slack' => [],
-  'spectacle' => [],
-  'vlc' => [],
-  'xquartz' => []
-}.each do |app_name, dependencies|
-  brew_cask(app_name => dependencies)
-
-  APPLICATIONS.push(app_name)
+  'caffeine' => 'ppa:caffeine-developers/ppa',
+  'fish' => 'ppa:fish-shell/release-2',
+  'flux' => 'ppa:nathan-renniewaldock/flux',
+  'git' => 'ppa:git-core/ppa',
+  'skype' => 'deb http://archive.canonical.com/ $(lsb_release -sc) partner',
+  'default-jdk htop postgresql postgresql-contrib silversearcher-ag tree unzip vim vlc wget' => nil,
+}.each do |packages, ppa|
+  install(packages, ppa)
+  APPLICATIONS.push(packages)
 end
 
-{
-  'ag' => [],
-  'apg' => [],
-  'aws-elasticbeanstalk' => [],
-  'pass' => [],
-  'gnupg2' => [],
-  'pstree' => [],
-  's3cmd' => []
-}.each do |app_name, dependencies|
-  brew(app_name => dependencies)
-
-  APPLICATIONS.push(app_name)
+def install(packages, ppa)
+  system "add-apt-repository #{ppa}" if ppa
+  system 'apt update'
+  system "apt install -y #{packages}"
 end
-
-brew_cask('caskroom/homebrew-versions/java6' => [])

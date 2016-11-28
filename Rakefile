@@ -8,4 +8,4 @@ task default: [
   'settings:bash_it',
   'language:ruby',
   'language:node'
-] + APPLICATIONS.map { |name| "application:#{name}" }
+] + APPLICATIONS.flat_map { |name| "application:#{name}" }
