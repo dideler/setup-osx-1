@@ -15,7 +15,7 @@ APPLICATIONS = []
 end
 
 def install(packages, ppa)
-  system "add-apt-repository #{ppa}" if ppa
+  system "add-apt-repository --yes #{ppa}" if ppa
   system 'apt update'
-  system "apt install -y #{packages}"
+  system "apt install --yes #{packages}"
 end
