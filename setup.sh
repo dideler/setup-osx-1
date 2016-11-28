@@ -2,10 +2,10 @@
 
 set -xe
 
-sudo apt update
-sudo apt upgrade --yes --quiet --with-new-pkgs
-sudo apt install --yes --quiet build-essential git libglib2.0-bin ruby
-sudo apt autoremove --yes --quiet
+sudo apt update --quiet
+sudo apt upgrade --quiet --yes --with-new-pkgs
+sudo apt install --quiet --yes build-essential git libglib2.0-bin ruby
+sudo apt autoremove --quiet --yes
 
 mkdir -p ~/github.com
 git clone https://github.com/dideler/setup-ubuntu.git ~/github.com/dideler/setup-ubuntu
