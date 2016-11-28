@@ -1,3 +1,4 @@
+require 'package_managers/apt'
 require 'package_managers/linuxbrew'
 
 APPLICATIONS = []
@@ -10,12 +11,6 @@ APPLICATIONS = []
   'skype' => 'deb http://archive.canonical.com/ $(lsb_release -sc) partner',
   'default-jdk htop postgresql postgresql-contrib silversearcher-ag tree unzip vim vlc wget' => nil,
 }.each do |packages, ppa|
-  install(packages, ppa)
+  apt_install(packages, ppa)
   APPLICATIONS.push(packages)
-end
-
-def install(packages, ppa)
-  system "add-apt-repository --yes #{ppa}" if ppa
-  system 'apt update'
-  system "apt install --yes #{packages}"
 end
