@@ -1,5 +1,4 @@
-require 'package_managers/homebrew'
-require 'package_managers/homebrew_cask'
+require 'package_managers/linuxbrew'
 
 APPLICATIONS = []
 

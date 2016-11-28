@@ -3,7 +3,7 @@ require 'applications/default'
 desc 'Install git-duet'
 task 'application:git_duet' => %w(
   application:git
-  package_manager:homebrew
+  package_manager:linuxbrew
   settings:bash_it
 ) do
   require 'yaml'
