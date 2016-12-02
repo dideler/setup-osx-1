@@ -12,6 +12,8 @@ export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 EOS
     )
+
+    system 'source ~/.bashrc'
   end
 end
 
@@ -20,6 +22,6 @@ def brew(name_and_dependencies)
   dependencies = name_and_dependencies[app_name] + ['package_manager:linuxbrew']
   desc "Install #{app_name}"
   task "application:#{app_name}" => dependencies do
-    system "bash -lc 'brew install #{app_name}'"
+    system "brew install #{app_name}"
   end
 end

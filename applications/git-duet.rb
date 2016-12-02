@@ -7,8 +7,8 @@ task 'application:git_duet' => %w(
   settings:bash_it
 ) do
   require 'yaml'
-  system 'bash -lc "brew tap git-duet/tap"'
-  system 'bash -lc "brew install git-duet"'
+  system 'brew tap git-duet/tap'
+  system 'brew install git-duet'
 
   config = {
     'authors' => {
