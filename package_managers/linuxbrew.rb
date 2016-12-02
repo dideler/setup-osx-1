@@ -15,6 +15,6 @@ def brew(name_and_dependencies)
   dependencies = name_and_dependencies[app_name] + ['package_manager:linuxbrew']
   desc "Install #{app_name}"
   task "application:#{app_name}" => dependencies do
-    system "brew install #{app_name}"
+    system "bash -lc 'brew install #{app_name}'"
   end
 end
