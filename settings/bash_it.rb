@@ -8,7 +8,7 @@ task 'settings:bash_it' do
     system "#{File.join(bash_it_path, 'install.sh')} --silent"
   end
 
-  system 'source ~/.bashrc'
+  system "source #{File.expand_path('~/.bashrc')}"
   system 'bash-it update'
   system 'bash-it enable alias ag bundler general git'
 end

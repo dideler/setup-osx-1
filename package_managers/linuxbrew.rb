@@ -13,7 +13,7 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 EOS
     )
 
-    system 'source ~/.bashrc'
+    system "source #{File.expand_path('~/.bashrc')}" 
   end
 end
 
