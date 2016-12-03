@@ -1,5 +1,7 @@
 desc 'Install Linuxbrew'
 task 'package_manager:linuxbrew' do
+  puts 'Installing linuxbrew'
+
   if system('command -v brew')
     system('brew update')
   else
@@ -13,7 +15,7 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 EOS
     )
 
-    system "source #{File.expand_path('~/.bashrc')}" 
+    system "source #{File.expand_path('~/.bashrc')}"
   end
 end
 
@@ -22,6 +24,7 @@ def brew(name_and_dependencies)
   dependencies = name_and_dependencies[app_name] + ['package_manager:linuxbrew']
   desc "Install #{app_name}"
   task "application:#{app_name}" => dependencies do
+    puts "Installing #{app_name}"
     system "brew install #{app_name}"
   end
 end

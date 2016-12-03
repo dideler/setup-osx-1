@@ -1,5 +1,6 @@
 desc 'Configure Ubuntu'
 task 'settings:ubuntu' do
+  puts 'Configuring Ubuntu settings'
 
   # Enable four workspaces
   system('gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2')
@@ -19,5 +20,4 @@ task 'settings:ubuntu' do
 
   # Auto-hide the launcher
   system('gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-hide-mode 1')
-
 end
