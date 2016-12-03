@@ -4,8 +4,8 @@ Dir.glob(File.join(__dir__, '**', '*.rb')).each do |rake_file|
 end
 
 task default: [
-  'settings:ubuntu',
+  # 'settings:ubuntu',
   'settings:bash_it',
   'language:ruby',
-  'language:node'
-] + APPLICATIONS.flat_map { |name| "application:#{name}" }
+  # 'language:node'
+] #+ APPLICATIONS.flat_map { |name| "application:#{name}" }

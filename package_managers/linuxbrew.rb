@@ -7,13 +7,17 @@ task 'package_manager:linuxbrew' do
   else
     system('ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"')
 
-    File.open(File.expand_path('~/.bash_it/custom/linuxbrew.env.bash'), 'w').write(
-<<-EOS
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-EOS
-    )
+    system('echo "export PATH=\"$HOME/.linuxbrew/bin:$PATH\"" >>~/.bashrc')
+    system('echo "export MANPATH=\"$HOME/.linuxbrew/share/man:$MANPATH\"" >>~/.bashrc')
+    system('echo "export INFOPATH=\"$HOME/.linuxbrew/share/info:$INFOPATH\"" >>~/.bashrc')
+
+#     File.open(File.expand_path('~/.bash_it/custom/linuxbrew.env.bash'), 'w').write(
+# <<-EOS
+# export PATH="$HOME/.linuxbrew/bin:$PATH"
+# export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+# export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+# EOS
+#     )
 
     system "source #{File.expand_path('~/.bashrc')}"
   end
