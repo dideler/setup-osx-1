@@ -3,7 +3,7 @@ def apt_install(packages, ppa)
   task "application:#{packages}" do
     puts "Installing #{packages}"
     system "sudo add-apt-repository --yes #{ppa}" if ppa
-    system 'sudo apt update --quiet'
-    system "sudo apt install --quiet --yes #{packages}"
+    system 'sudo apt update --quiet --quiet'
+    system "sudo apt install --quiet --quiet --yes #{packages}"
   end
 end
