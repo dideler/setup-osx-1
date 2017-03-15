@@ -10,7 +10,7 @@ APPLICATIONS = []
   'git' => 'ppa:git-core/ppa',
   'skype' => '"deb http://archive.canonical.com/ $(lsb_release -sc) partner"',
   'thunderbird' => 'ppa:ubuntu-mozilla-daily/ppa',
-  'default-jdk htop pdftk postgresql postgresql-contrib silversearcher-ag tree unzip vim vlc wget' => nil,
+  'default-jdk htop pdftk postgresql postgresql-contrib silversearcher-ag terminator tree unzip vim vlc wget' => nil,
 }.each do |packages, ppa|
   apt_install(packages, ppa)
   APPLICATIONS.push(packages)
